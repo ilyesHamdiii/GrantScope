@@ -107,6 +107,22 @@ Health:    http://localhost:8000/health
 .\scripts\verify-project.ps1
 ~~~
 
+
+## Live Entra Validation
+
+GrantScope was validated against a controlled Microsoft Entra lab tenant using a read-only Microsoft Graph collector.
+
+The validated flow was:
+
+1. Export Entra application, service-principal, ownership, credential, consent, role-assignment, audit, and sign-in evidence.
+2. Import the generated ZIP into GrantScope.
+3. Generate explainable analyst cases.
+4. Reduce normal external enterprise-application noise through baseline-aware detection.
+5. Detect a tenant-owned collector ownership gap.
+6. Add an accountable owner in Entra.
+7. Re-export and re-import evidence to verify that the ownership finding disappeared.
+
+The collector uses read-only Graph permissions and does not modify tenant configuration.
 ## Security boundary
 
 GrantScope does not store or print:
