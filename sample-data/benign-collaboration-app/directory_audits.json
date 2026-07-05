@@ -1,0 +1,53 @@
+[
+  {
+    "id": "audit-nbmeetings-create",
+    "activityDateTime": "2026-01-10T09:15:00Z",
+    "activityDisplayName": "Add application",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-nbmeetings-create",
+    "initiatedBy": {
+      "user": {
+        "id": "user-owner-nadia",
+        "displayName": "Nadia Ben Salem",
+        "userPrincipalName": "nadia.bensalem@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "app-object-northbridge-meetings",
+        "displayName": "NorthBridge Meetings",
+        "type": "Application"
+      }
+    ],
+    "additionalDetails": []
+  },
+  {
+    "id": "audit-nbmeetings-consent",
+    "activityDateTime": "2026-01-10T09:24:00Z",
+    "activityDisplayName": "Consent to application",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-nbmeetings-consent",
+    "initiatedBy": {
+      "user": {
+        "id": "user-owner-nadia",
+        "displayName": "Nadia Ben Salem",
+        "userPrincipalName": "nadia.bensalem@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "sp-object-northbridge-meetings",
+        "displayName": "NorthBridge Meetings",
+        "type": "ServicePrincipal"
+      }
+    ],
+    "additionalDetails": [
+      {
+        "key": "Scope",
+        "value": "User.Read Calendars.Read offline_access"
+      }
+    ]
+  }
+]

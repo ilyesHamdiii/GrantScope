@@ -1,0 +1,24 @@
+[
+  {
+    "id": "assignment-provisioning-bridge-001",
+    "appRoleId": "role-application-readwrite-all",
+    "appRoleValue": "Application.ReadWrite.All",
+    "createdDateTime": "2026-06-29T22:23:00Z",
+    "principalId": "sp-provisioning-bridge",
+    "principalType": "ServicePrincipal",
+    "principalDisplayName": "Provisioning Bridge",
+    "resourceId": "sp-microsoft-graph-demo",
+    "resourceDisplayName": "Microsoft Graph"
+  },
+  {
+    "id": "assignment-directory-admin-001",
+    "appRoleId": "role-rolemanagement-readwrite-directory",
+    "appRoleValue": "RoleManagement.ReadWrite.Directory",
+    "createdDateTime": "2026-06-26T08:17:00Z",
+    "principalId": "sp-directory-admin-integration",
+    "principalType": "ServicePrincipal",
+    "principalDisplayName": "Directory Administration Integration",
+    "resourceId": "sp-microsoft-graph-demo",
+    "resourceDisplayName": "Microsoft Graph"
+  }
+]

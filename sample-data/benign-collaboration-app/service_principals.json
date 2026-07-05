@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sp-object-northbridge-meetings",
+    "appId": "4e05fbb0-4470-4f0b-8d25-3f5f05a9c001",
+    "displayName": "NorthBridge Meetings",
+    "servicePrincipalType": "Application",
+    "accountEnabled": true,
+    "appOwnerOrganizationId": "11111111-1111-1111-1111-111111111111",
+    "publisherName": "NorthBridge IT",
+    "verifiedPublisher": {
+      "verifiedPublisherId": "northbridge-demo-publisher",
+      "displayName": "NorthBridge IT"
+    },
+    "tags": [
+      "WindowsAzureActiveDirectoryIntegratedApp"
+    ]
+  }
+]

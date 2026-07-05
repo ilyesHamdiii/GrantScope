@@ -1,0 +1,53 @@
+[
+  {
+    "id": "signin-meetings-001",
+    "createdDateTime": "2026-07-01T08:41:16Z",
+    "appId": "4e05fbb0-4470-4f0b-8d25-3f5f05a9c001",
+    "appDisplayName": "NorthBridge Meetings",
+    "servicePrincipalId": "sp-northbridge-meetings",
+    "servicePrincipalName": "NorthBridge Meetings",
+    "userId": "user-samia",
+    "userPrincipalName": "samia.benali@northbridge.example",
+    "userDisplayName": "Samia Ben Ali",
+    "ipAddress": "198.51.100.18",
+    "correlationId": "corr-meetings-signin",
+    "conditionalAccessStatus": "success",
+    "riskLevelAggregated": "none",
+    "resourceDisplayName": "Microsoft Graph",
+    "status": {
+      "errorCode": 0
+    },
+    "location": {
+      "city": "Tunis",
+      "countryOrRegion": "TN"
+    },
+    "deviceDetail": {
+      "operatingSystem": "Windows 11",
+      "browser": "Edge"
+    }
+  },
+  {
+    "id": "signin-provisioning-bridge-001",
+    "createdDateTime": "2026-06-29T22:47:00Z",
+    "appId": "7b2175ad-f7c0-4c7f-8f41-1ea5651a9003",
+    "appDisplayName": "Provisioning Bridge",
+    "servicePrincipalId": "sp-provisioning-bridge",
+    "servicePrincipalName": "Provisioning Bridge",
+    "ipAddress": "203.0.113.48",
+    "correlationId": "corr-provisioning-signin",
+    "conditionalAccessStatus": "notApplied",
+    "riskLevelAggregated": "none",
+    "resourceDisplayName": "Microsoft Graph",
+    "status": {
+      "errorCode": 0
+    },
+    "location": {
+      "city": "Unknown",
+      "countryOrRegion": "ZZ"
+    },
+    "deviceDetail": {
+      "operatingSystem": "Unknown",
+      "browser": "Unknown"
+    }
+  }
+]

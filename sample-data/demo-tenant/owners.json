@@ -1,0 +1,38 @@
+[
+  {
+    "resource_type": "application",
+    "resource_id": "app-northbridge-meetings",
+    "owner_id": "user-nadia",
+    "owner_type": "user",
+    "owner_display_name": "Nadia Ben Salem",
+    "owner_user_principal_name": "nadia.bensalem@northbridge.example",
+    "owner_account_enabled": true
+  },
+  {
+    "resource_type": "servicePrincipal",
+    "resource_id": "sp-northbridge-meetings",
+    "owner_id": "user-nadia",
+    "owner_type": "user",
+    "owner_display_name": "Nadia Ben Salem",
+    "owner_user_principal_name": "nadia.bensalem@northbridge.example",
+    "owner_account_enabled": true
+  },
+  {
+    "resource_type": "application",
+    "resource_id": "app-provisioning-bridge",
+    "owner_id": "user-decommissioned-admin",
+    "owner_type": "user",
+    "owner_display_name": "Decommissioned Automation Admin",
+    "owner_user_principal_name": "automation.admin@northbridge.example",
+    "owner_account_enabled": false
+  },
+  {
+    "resource_type": "servicePrincipal",
+    "resource_id": "sp-provisioning-bridge",
+    "owner_id": "user-decommissioned-admin",
+    "owner_type": "user",
+    "owner_display_name": "Decommissioned Automation Admin",
+    "owner_user_principal_name": "automation.admin@northbridge.example",
+    "owner_account_enabled": false
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "grant-nbmeetings-001",
+    "clientId": "sp-object-northbridge-meetings",
+    "resourceId": "sp-object-microsoft-graph-demo",
+    "principalId": null,
+    "consentType": "AllPrincipals",
+    "scope": "User.Read Calendars.Read offline_access"
+  }
+]

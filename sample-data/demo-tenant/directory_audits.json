@@ -1,0 +1,137 @@
+[
+  {
+    "id": "audit-meetings-create",
+    "activityDateTime": "2026-01-10T09:15:00Z",
+    "activityDisplayName": "Add application",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-meetings-create",
+    "initiatedBy": {
+      "user": {
+        "id": "user-nadia",
+        "displayName": "Nadia Ben Salem",
+        "userPrincipalName": "nadia.bensalem@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "app-northbridge-meetings",
+        "displayName": "NorthBridge Meetings",
+        "type": "Application"
+      }
+    ],
+    "additionalDetails": []
+  },
+  {
+    "id": "audit-cloudsync-consent",
+    "activityDateTime": "2026-06-20T13:18:00Z",
+    "activityDisplayName": "Consent to application",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-cloudsync-consent",
+    "initiatedBy": {
+      "user": {
+        "id": "user-unknown-admin",
+        "displayName": "Unknown Administrator",
+        "userPrincipalName": "unknown.admin@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "sp-cloudsync-assistant",
+        "displayName": "CloudSync Assistant",
+        "type": "ServicePrincipal"
+      }
+    ],
+    "additionalDetails": [
+      {
+        "key": "Scope",
+        "value": "Mail.ReadWrite Files.ReadWrite.All offline_access"
+      }
+    ]
+  },
+  {
+    "id": "audit-provisioning-role",
+    "activityDateTime": "2026-06-29T22:23:00Z",
+    "activityDisplayName": "Add app role assignment to service principal",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-provisioning-role",
+    "initiatedBy": {
+      "user": {
+        "id": "user-automation-admin",
+        "displayName": "Automation Administrator",
+        "userPrincipalName": "automation.admin@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "sp-provisioning-bridge",
+        "displayName": "Provisioning Bridge",
+        "type": "ServicePrincipal"
+      }
+    ],
+    "additionalDetails": [
+      {
+        "key": "AppRole",
+        "value": "Application.ReadWrite.All"
+      }
+    ]
+  },
+  {
+    "id": "audit-provisioning-credential-added",
+    "activityDateTime": "2026-06-29T22:30:00Z",
+    "activityDisplayName": "Add service principal credentials",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-provisioning-credential",
+    "initiatedBy": {
+      "user": {
+        "id": "user-automation-admin",
+        "displayName": "Automation Administrator",
+        "userPrincipalName": "automation.admin@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "sp-provisioning-bridge",
+        "displayName": "Provisioning Bridge",
+        "type": "ServicePrincipal"
+      }
+    ],
+    "additionalDetails": [
+      {
+        "key": "CredentialType",
+        "value": "password"
+      }
+    ]
+  },
+  {
+    "id": "audit-directory-admin-role",
+    "activityDateTime": "2026-06-26T08:17:00Z",
+    "activityDisplayName": "Add app role assignment to service principal",
+    "category": "ApplicationManagement",
+    "result": "success",
+    "correlationId": "corr-directory-admin-role",
+    "initiatedBy": {
+      "user": {
+        "id": "user-tenant-admin",
+        "displayName": "Tenant Administrator",
+        "userPrincipalName": "tenant.admin@northbridge.example"
+      }
+    },
+    "targetResources": [
+      {
+        "id": "sp-directory-admin-integration",
+        "displayName": "Directory Administration Integration",
+        "type": "ServicePrincipal"
+      }
+    ],
+    "additionalDetails": [
+      {
+        "key": "AppRole",
+        "value": "RoleManagement.ReadWrite.Directory"
+      }
+    ]
+  }
+]

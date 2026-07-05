@@ -1,0 +1,48 @@
+[
+  {
+    "id": "sp-northbridge-meetings",
+    "appId": "4e05fbb0-4470-4f0b-8d25-3f5f05a9c001",
+    "displayName": "NorthBridge Meetings",
+    "servicePrincipalType": "Application",
+    "accountEnabled": true,
+    "appOwnerOrganizationId": "11111111-1111-1111-1111-111111111111",
+    "publisherName": "NorthBridge IT",
+    "verifiedPublisher": {
+      "verifiedPublisherId": "northbridge-demo-publisher",
+      "displayName": "NorthBridge IT"
+    },
+    "tags": [
+      "WindowsAzureActiveDirectoryIntegratedApp"
+    ]
+  },
+  {
+    "id": "sp-cloudsync-assistant",
+    "appId": "d1109fe1-9168-4da0-82b0-4db6f307c002",
+    "displayName": "CloudSync Assistant",
+    "servicePrincipalType": "Application",
+    "accountEnabled": true,
+    "appOwnerOrganizationId": "99999999-9999-9999-9999-999999999999",
+    "publisherName": "CloudSync Unknown",
+    "tags": []
+  },
+  {
+    "id": "sp-provisioning-bridge",
+    "appId": "7b2175ad-f7c0-4c7f-8f41-1ea5651a9003",
+    "displayName": "Provisioning Bridge",
+    "servicePrincipalType": "Application",
+    "accountEnabled": true,
+    "appOwnerOrganizationId": "11111111-1111-1111-1111-111111111111",
+    "publisherName": "NorthBridge IT",
+    "tags": []
+  },
+  {
+    "id": "sp-directory-admin-integration",
+    "appId": "b84b23f5-b569-49de-a7d5-939a2b61f004",
+    "displayName": "Directory Administration Integration",
+    "servicePrincipalType": "Application",
+    "accountEnabled": true,
+    "appOwnerOrganizationId": "88888888-8888-8888-8888-888888888888",
+    "publisherName": "Directory Tools Unknown",
+    "tags": []
+  }
+]

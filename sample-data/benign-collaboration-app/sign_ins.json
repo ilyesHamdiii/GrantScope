@@ -1,0 +1,30 @@
+[
+  {
+    "id": "signin-nbmeetings-001",
+    "createdDateTime": "2026-07-01T08:41:16Z",
+    "appId": "4e05fbb0-4470-4f0b-8d25-3f5f05a9c001",
+    "appDisplayName": "NorthBridge Meetings",
+    "servicePrincipalId": "sp-object-northbridge-meetings",
+    "servicePrincipalName": "NorthBridge Meetings",
+    "userId": "user-employee-samia",
+    "userPrincipalName": "samia.benali@northbridge.example",
+    "userDisplayName": "Samia Ben Ali",
+    "ipAddress": "198.51.100.18",
+    "correlationId": "corr-nbmeetings-signin-001",
+    "conditionalAccessStatus": "success",
+    "riskLevelAggregated": "none",
+    "resourceDisplayName": "Microsoft Graph",
+    "status": {
+      "errorCode": 0,
+      "failureReason": null
+    },
+    "location": {
+      "city": "Tunis",
+      "countryOrRegion": "TN"
+    },
+    "deviceDetail": {
+      "operatingSystem": "Windows 11",
+      "browser": "Edge"
+    }
+  }
+]

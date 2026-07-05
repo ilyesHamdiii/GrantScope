@@ -1,0 +1,50 @@
+name: GrantScope CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create CI environment file
+        run: |
+          cat > .env <<'EOF'
+          POSTGRES_DB=grantscope
+          POSTGRES_USER=grantscope
+          POSTGRES_PASSWORD=change-me-local-only
+          DATABASE_URL=postgresql+psycopg://grantscope:change-me-local-only@db:5432/grantscope
+          EOF
+
+      - name: Build and start services
+        run: docker compose up --build -d
+
+      - name: Wait for API
+        run: |
+          for i in {1..60}; do
+            if curl --fail --silent http://localhost:8000/health; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker compose logs --no-color
+          exit 1
+
+      - name: Run backend tests
+        run: docker compose exec -T -w /app api python -m pytest -q /app/tests
+
+      - name: Build React frontend
+        run: docker compose exec -T frontend npm run build
+
+      - name: Show logs on failure
+        if: failure()
+        run: docker compose logs --no-color
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v

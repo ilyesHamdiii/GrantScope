@@ -1,0 +1,18 @@
+[
+  {
+    "id": "grant-northbridge-meetings",
+    "clientId": "sp-northbridge-meetings",
+    "resourceId": "sp-microsoft-graph-demo",
+    "principalId": null,
+    "consentType": "AllPrincipals",
+    "scope": "User.Read Calendars.Read offline_access"
+  },
+  {
+    "id": "grant-cloudsync-assistant",
+    "clientId": "sp-cloudsync-assistant",
+    "resourceId": "sp-microsoft-graph-demo",
+    "principalId": null,
+    "consentType": "AllPrincipals",
+    "scope": "User.Read Mail.ReadWrite Files.ReadWrite.All offline_access"
+  }
+]
