@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: grantscope_public_demo
+      POSTGRES_USER: grantscope_demo
+      POSTGRES_PASSWORD: local-public-demo-only
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U grantscope_demo -d grantscope_public_demo"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - grantscope_public_demo_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.public-demo
+    environment:
+      DATABASE_URL: postgresql+psycopg://grantscope_demo:local-public-demo-only@db:5432/grantscope_public_demo
+      PUBLIC_DEMO_MODE: "true"
+      DEMO_SEED_BUNDLE_PATH: /app/sample-data/demo-tenant.zip
+      DEMO_SEED_SOURCE_NAME: public-demo-northbridge.zip
+      PORT: "10000"
+    ports:
+      - "8088:10000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  grantscope_public_demo_data:

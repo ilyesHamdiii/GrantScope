@@ -1,0 +1,9 @@
+.git
+.env
+exports
+docs/evidence
+frontend/node_modules
+frontend/dist
+backend/__pycache__
+**/__pycache__
+**/*.pyc

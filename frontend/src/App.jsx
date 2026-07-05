@@ -11,6 +11,9 @@ import {
   uploadEvidenceBundle
 } from "./api";
 
+const PUBLIC_DEMO_MODE =
+  import.meta.env.VITE_PUBLIC_DEMO_MODE === "true";
+
 const severityOrder = {
   critical: 4,
   high: 3,
@@ -370,6 +373,13 @@ export default function App() {
   async function handleImport(event) {
     event.preventDefault();
 
+    if (PUBLIC_DEMO_MODE) {
+      setNotice(
+        "Public demo is read-only. Synthetic NorthBridge evidence is already loaded."
+      );
+      return;
+    }
+
     if (!file) {
       setError("Select a GrantScope evidence ZIP bundle first.");
       return;
@@ -413,6 +423,13 @@ export default function App() {
 
   async function handleWorkflowSave(event) {
     event.preventDefault();
+
+    if (PUBLIC_DEMO_MODE) {
+      setNotice(
+        "Public demo is read-only. Workflow changes are disabled."
+      );
+      return;
+    }
 
     if (!selectedCase) {
       return;
@@ -498,12 +515,16 @@ export default function App() {
           <div>
             <strong>
               {databaseOnline
-                ? "Local investigation lab"
+                ? PUBLIC_DEMO_MODE
+                  ? "Synthetic public demo"
+                  : "Local investigation lab"
                 : "API unavailable"}
             </strong>
             <span>
               {databaseOnline
-                ? "FastAPI + PostgreSQL connected"
+                ? PUBLIC_DEMO_MODE
+                  ? "Read-only NorthBridge evidence"
+                  : "FastAPI + PostgreSQL connected"
                 : "Check Docker containers"}
             </span>
           </div>
@@ -590,6 +611,16 @@ export default function App() {
             </button>
           </div>
         </header>
+
+        {PUBLIC_DEMO_MODE && (
+          <div className="banner banner-success">
+            <strong>Public demo — synthetic evidence only.</strong>
+            <span>
+              NorthBridge evidence is preloaded. Uploads and workflow changes are disabled.
+            </span>
+          </div>
+        )}
+
         {error && (
           <div className="banner banner-error">
             <strong>Action failed.</strong>
@@ -636,15 +667,26 @@ export default function App() {
           <article className="panel import-panel">
             <div className="panel-heading">
               <div>
-                <p className="eyebrow">Evidence intake</p>
-                <h2>Import investigation bundle</h2>
+                <p className="eyebrow">
+                  {PUBLIC_DEMO_MODE
+                    ? "Public demo dataset"
+                    : "Evidence intake"}
+                </p>
+                <h2>
+                  {PUBLIC_DEMO_MODE
+                    ? "Synthetic NorthBridge evidence"
+                    : "Import investigation bundle"}
+                </h2>
               </div>
-              <span className="panel-tag">ZIP</span>
+              <span className="panel-tag">
+                {PUBLIC_DEMO_MODE ? "READ ONLY" : "ZIP"}
+              </span>
             </div>
 
             <p className="muted">
-              Upload a GrantScope evidence bundle containing Entra application,
-              consent, credential, audit, and sign-in telemetry.
+              {PUBLIC_DEMO_MODE
+                ? "This workspace is preloaded with synthetic NorthBridge evidence. No live tenant data, uploads, or workflow changes are accepted."
+                : "Upload a GrantScope evidence bundle containing Entra application, consent, credential, audit, and sign-in telemetry."}
             </p>
 
             <form onSubmit={handleImport} className="import-form">
@@ -653,26 +695,31 @@ export default function App() {
                   ref={fileInputRef}
                   type="file"
                   accept=".zip,application/zip"
+                  disabled={PUBLIC_DEMO_MODE}
                   onChange={(event) =>
                     setFile(event.target.files?.[0] ?? null)
                   }
                 />
                 <span className="file-picker-icon">↑</span>
                 <span>
-                  {file
-                    ? file.name
-                    : "Choose evidence ZIP bundle"}
+                  {PUBLIC_DEMO_MODE
+                    ? "NorthBridge synthetic evidence is preloaded"
+                    : file
+                      ? file.name
+                      : "Choose evidence ZIP bundle"}
                 </span>
               </label>
 
               <button
                 className="primary-button"
                 type="submit"
-                disabled={uploading}
+                disabled={uploading || PUBLIC_DEMO_MODE}
               >
-                {uploading
-                  ? "Importing and correlating..."
-                  : "Import and investigate"}
+                {PUBLIC_DEMO_MODE
+                  ? "Synthetic evidence loaded"
+                  : uploading
+                    ? "Importing and correlating..."
+                    : "Import and investigate"}
               </button>
             </form>
 
@@ -1035,10 +1082,20 @@ export default function App() {
                     </span>
                   </div>
 
-                  <form
-                    className="workflow-form"
-                    onSubmit={handleWorkflowSave}
+                  {PUBLIC_DEMO_MODE && (
+                    <p className="muted">
+                      Workflow controls are disabled in the public synthetic demo.
+                    </p>
+                  )}
+
+                  <fieldset
+                    disabled={PUBLIC_DEMO_MODE}
+                    style={{ border: 0, margin: 0, padding: 0 }}
                   >
+                    <form
+                      className="workflow-form"
+                      onSubmit={handleWorkflowSave}
+                    >
                     <label>
                       Analyst name
                       <input
@@ -1113,13 +1170,14 @@ export default function App() {
                     <button
                       className="primary-button"
                       type="submit"
-                      disabled={workflowSaving}
+                      disabled={workflowSaving || PUBLIC_DEMO_MODE}
                     >
                       {workflowSaving
                         ? "Saving workflow..."
                         : "Save workflow update"}
                     </button>
-                  </form>
+                    </form>
+                  </fieldset>
 
                   {selectedCase.activities?.length ? (
                     <div className="activity-log">
